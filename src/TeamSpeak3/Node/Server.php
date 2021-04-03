@@ -529,7 +529,7 @@ class Server extends Node
   public function channelFileInfo($cid, $cpw = "", $name = "/")
   {
     $info = $this->execute("ftgetfileinfo", array("cid" => $cid, "cpw" => $cpw, "name" => $name))->toArray();
-    
+
     return array_pop($info);
   }
 
@@ -808,7 +808,7 @@ class Server extends Node
 
     throw new Exception("invalid clientID", 0x200);
   }
-  
+
   /**
    * Returns the Client object matching the given database ID.
    *
@@ -1945,7 +1945,7 @@ class Server extends Node
     }
 
     $server["mapping"] = $detail;
-    
+
     return $server;
   }
 
@@ -2032,7 +2032,7 @@ class Server extends Node
    *
    * @deprecated
    */
-  public function tokenCreate($type = TeamSpeak3::TOKEN_SERVERGROUP, $id1, $id2 = 0, $description = null, $customset = null)
+  public function tokenCreate($type, $id1, $id2 = 0, $description = null, $customset = null)
   {
     return $this->privilegeKeyCreate($type, $id1, $id2, $description, $customset);
   }
@@ -2047,7 +2047,7 @@ class Server extends Node
    * @param  string  $customset
    * @return Str
    */
-  public function privilegeKeyCreate($type = TeamSpeak3::TOKEN_SERVERGROUP, $id1, $id2 = 0, $description = null, $customset = null)
+  public function privilegeKeyCreate($type, $id1, $id2 = 0, $description = null, $customset = null)
   {
     $token = $this->execute("privilegekeyadd", array("tokentype" => $type, "tokenid1" => $id1, "tokenid2" => $id2, "tokendescription" => $description, "tokencustomset" => $customset))->toList();
 
@@ -2243,7 +2243,7 @@ class Server extends Node
   {
     $this->execute("complaindel", array("tcldbid" => $tcldbid, "fcldbid" => $fcldbid));
   }
-  
+
   /**
    * Returns a list of temporary server passwords.
    *
@@ -2253,7 +2253,7 @@ class Server extends Node
   public function tempPasswordList($resolve = FALSE)
   {
     $passwords = $this->request("servertemppasswordlist")->toAssocArray("pw_clear");
-    
+
     if($resolve)
     {
       foreach($passwords as $password => $array)
@@ -2261,7 +2261,7 @@ class Server extends Node
         try
         {
           $channel = $this->channelGetById($array["tcid"]);
-          
+
           $passwords[$password]["tcname"] = $channel->toString();
           $passwords[$password]["tcpath"] = $channel->getPathway();
         }
@@ -2272,14 +2272,14 @@ class Server extends Node
         }
       }
     }
-    
+
     return $passwords;
   }
-  
+
   /**
-   * Sets a new temporary server password specified with $pw. The temporary password will be 
-   * valid for the number of seconds specified with $duration. The client connecting with this 
-   * password will automatically join the channel specified with $tcid. If tcid is set to 0, 
+   * Sets a new temporary server password specified with $pw. The temporary password will be
+   * valid for the number of seconds specified with $duration. The client connecting with this
+   * password will automatically join the channel specified with $tcid. If tcid is set to 0,
    * the client will join the default channel.
    *
    * @param  string  $pw
@@ -2293,7 +2293,7 @@ class Server extends Node
   {
     $this->execute("servertemppasswordadd", array("pw" => $pw, "duration" => $duration, "tcid" => $tcid, "tcpw" => $tcpw, "desc" => $desc));
   }
-  
+
   /**
    * Deletes the temporary server password specified with $pw.
    *
@@ -2371,7 +2371,7 @@ class Server extends Node
   {
     $this->getParent()->serverStop($this->getId(), $msg);
   }
-  
+
   /**
    * Sends a plugin command to all clients connected to the server.
    *
@@ -2534,7 +2534,7 @@ class Server extends Node
 
       throw new Exception("invalid parameter", 0x602);
     }
-    
+
     if($a["type"] != $b["type"])
     {
       return ($a["type"] < $b["type"]) ? -1 : 1;
