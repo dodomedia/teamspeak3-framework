@@ -25,6 +25,7 @@
 namespace Adams\TeamSpeak3\Viewer;
 
 use Adams\TeamSpeak3;
+use Adams\TeamSpeak3\Helper\Convert;
 use Adams\TeamSpeak3\Interfaces\Viewer as ViewerInterface;
 use Adams\TeamSpeak3\Node;
 use Adams\TeamSpeak3\Node\Host;
@@ -382,7 +383,7 @@ class Json implements ViewerInterface
       $props->icon     = $this->currObj->virtualserver_icon_id < 0 ? pow(2, 32)-($this->currObj->virtualserver_icon_id*-1) : $this->currObj->virtualserver_icon_id;
       $props->welcmsg  = strlen($this->currObj->virtualserver_welcomemessage) ? trim($this->currObj->virtualserver_welcomemessage) : null;
       $props->hostmsg  = strlen($this->currObj->virtualserver_hostmessage) ? trim($this->currObj->virtualserver_hostmessage) : null;
-      $props->version  = TeamSpeak3_Helper_Convert::versionShort($this->currObj->virtualserver_version)->toString();
+      $props->version  = Convert::versionShort($this->currObj->virtualserver_version)->toString();
       $props->platform = $this->currObj->virtualserver_platform->toString();
       $props->country  = null;
       $props->users    = $this->currObj->clientCount();
@@ -422,7 +423,7 @@ class Json implements ViewerInterface
     {
       $props->id       = $this->currObj->getId();
       $props->icon     = $this->currObj->client_icon_id < 0 ? pow(2, 32)-($this->currObj->client_icon_id*-1) : $this->currObj->client_icon_id;
-      $props->version  = TeamSpeak3_Helper_Convert::versionShort($this->currObj->client_version)->toString();
+      $props->version  = Convert::versionShort($this->currObj->client_version)->toString();
       $props->platform = $this->currObj->client_platform->toString();
       $props->country  = strlen($this->currObj->client_country) ? trim($this->currObj->client_country) : null;
       $props->awaymesg = strlen($this->currObj->client_away_message) ? trim($this->currObj->client_away_message) : null;
@@ -432,7 +433,7 @@ class Json implements ViewerInterface
 
       foreach($this->currObj->memberOf() as $num => $group)
       {
-        $props->memberof[$num] = new stdClass();
+        $props->memberof[$num] = new \stdClass();
 
         $props->memberof[$num]->name  = trim($group->name);
         $props->memberof[$num]->icon  = $group->iconid < 0 ? pow(2, 32)-($group->iconid*-1) : $group->iconid;

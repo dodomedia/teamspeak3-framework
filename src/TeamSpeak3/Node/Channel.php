@@ -27,9 +27,6 @@ namespace Adams\TeamSpeak3\Node;
 use Adams\TeamSpeak3;
 use Adams\TeamSpeak3\Adapter\ServerQuery\Exception;
 use Adams\TeamSpeak3\Node;
-use Adams\TeamSpeak3\Node\Server;
-use Adams\TeamSpeak3\Node\Client;
-use Adams\TeamSpeak3\Node\Channel;
 use Adams\TeamSpeak3\Helper\Str;
 
 /**
@@ -47,7 +44,7 @@ class Channel extends Node
    * @throws Exception
    * @return Channel
    */
-  public function __construct(TeamSpeak3_Node_Server $server, array $info, $index = "cid")
+  public function __construct(Server $server, array $info, $index = "cid")
   {
     $this->parent = $server;
     $this->nodeInfo = $info;

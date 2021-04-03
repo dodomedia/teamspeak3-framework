@@ -24,7 +24,8 @@
 
 namespace Adams\TeamSpeak3;
 
-use Adams\TeamSpeak3\Node;
+use Adams\TeamSpeak3\Node\Channel;
+use Adams\TeamSpeak3\Node\Client;
 use Adams\TeamSpeak3\Node\Exception;
 use Adams\TeamSpeak3\Helper\Str;
 use Adams\TeamSpeak3\Helper\Convert;
@@ -157,11 +158,11 @@ abstract class Node implements \RecursiveIterator, \ArrayAccess, \Countable
    */
   public function getClass($prefix = "ts3_")
   {
-    if($this instanceof TeamSpeak3_Node_Channel && $this->isSpacer())
+    if($this instanceof Channel && $this->isSpacer())
     {
       return $prefix . "spacer";
     }
-    elseif($this instanceof TeamSpeak3_Node_Client && $this["client_type"])
+    elseif($this instanceof Client && $this["client_type"])
     {
       return $prefix . "query";
     }
@@ -301,7 +302,7 @@ abstract class Node implements \RecursiveIterator, \ArrayAccess, \Countable
         }
         elseif($key->contains("_packetloss_"))
         {
-          $info[$key->toString()] = sprintf("%01.2f", floatval($val instanceof TeamSpeak3_Helper_String ? $val->toString() : strval($val))*100) . "%";
+          $info[$key->toString()] = sprintf("%01.2f", floatval($val instanceof Str ? $val->toString() : strval($val))*100) . "%";
         }
         elseif($key->endsWith("_uptime"))
         {
