@@ -24,9 +24,6 @@
 
 namespace Adams\TeamSpeak3\Helper;
 
-use Adams\TeamSpeak3\Helper\Str;
-use Adams\TeamSpeak3\Helper\Exception;
-
 /**
  * @class Uri
  * @brief Helper class for URI handling.
@@ -717,7 +714,7 @@ class Uri
 
     foreach($var as $key => $val)
     {
-      $var[$key] = (is_array($val)) ? stripslashesRecursive($val) : stripslashes(strval($val));
+      $var[$key] = (is_array($val)) ? self::stripslashesRecursive($val) : stripslashes(strval($val));
     }
 
     return $var;

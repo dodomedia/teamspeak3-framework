@@ -25,7 +25,6 @@
 namespace Adams\TeamSpeak3\Transport;
 
 use Adams\TeamSpeak3\Transport;
-use Adams\TeamSpeak3\Transport\Exception;
 use Adams\TeamSpeak3\Helper\Signal;
 use Adams\TeamSpeak3\Helper\Str;
 

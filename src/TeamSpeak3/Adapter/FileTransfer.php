@@ -24,7 +24,6 @@
 
 namespace Adams\TeamSpeak3\Adapter;
 
-use Adams\TeamSpeak3;
 use Adams\TeamSpeak3\Adapter;
 use Adams\TeamSpeak3\Transport;
 use Adams\TeamSpeak3\Adapter\Exception as AdapterException;

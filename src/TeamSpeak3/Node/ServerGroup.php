@@ -27,15 +27,13 @@ namespace Adams\TeamSpeak3\Node;
 use Adams\TeamSpeak3;
 use Adams\TeamSpeak3\Adapter\ServerQuery\Exception as ServerQueryException;
 use Adams\TeamSpeak3\Node;
-use Adams\TeamSpeak3\Node\Server;
-use Adams\TeamSpeak3\Node\Exception;
 use Adams\TeamSpeak3\Helper\Str;
 
 /**
  * @class ServerGroup
  * @brief Class describing a TeamSpeak 3 server group and all it's parameters.
  */
-class ServerGroup extends Note
+class ServerGroup extends Node
 {
   /**
    * The ServerGroup constructor.

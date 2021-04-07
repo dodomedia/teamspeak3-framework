@@ -24,7 +24,6 @@
 
 namespace Adams\TeamSpeak3;
 
-use Adams\TeamSpeak3\Transport;
 use Adams\TeamSpeak3\Adapter\Exception;
 use Adams\TeamSpeak3\Helper\Profiler;
 use Adams\TeamSpeak3\Helper\Profiler\Timer;

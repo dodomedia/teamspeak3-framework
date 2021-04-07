@@ -25,14 +25,15 @@
 namespace Adams\TeamSpeak3\Helper;
 
 use Adams\TeamSpeak3;
-use Adams\TeamSpeak3\Helper\Char;
-use Adams\TeamSpeak3\Helper\Exception;
+use ArrayAccess;
+use Countable;
+use Iterator;
 
 /**
  * @class Str
  * @brief Helper class for string handling.
  */
-class Str implements \ArrayAccess, \Iterator, \Countable
+class Str implements ArrayAccess, Iterator, Countable
 {
   /**
    * Stores the original string.

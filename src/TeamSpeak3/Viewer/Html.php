@@ -26,6 +26,7 @@ namespace Adams\TeamSpeak3\Viewer;
 
 use Adams\TeamSpeak3;
 use Adams\TeamSpeak3\Node;
+use Adams\TeamSpeak3\Node\ChannelGroup;
 use Adams\TeamSpeak3\Node\Server;
 use Adams\TeamSpeak3\Node\Channel;
 use Adams\TeamSpeak3\Node\Client;
@@ -314,7 +315,7 @@ class Html implements ViewerInterface
     {
       return "ID: " . $this->currObj->getId() . " | Version: " . Convert::versionShort($this->currObj["client_version"]) . " | Platform: " . $this->currObj["client_platform"];
     }
-    elseif($this->currObj instanceof ServerGroup || $this->currObj instanceof Channelgroup)
+    elseif($this->currObj instanceof ServerGroup || $this->currObj instanceof ChannelGroup)
     {
       return "ID: " . $this->currObj->getId() . " | Type: " . Convert::groupType($this->currObj["type"]) . " (" . ($this->currObj["savedb"] ? "Permanent" : "Temporary") . ")";
     }

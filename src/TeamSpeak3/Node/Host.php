@@ -28,11 +28,11 @@ use Adams\TeamSpeak3;
 use Adams\TeamSpeak3\Adapter\ServerQuery;
 use Adams\TeamSpeak3\Adapter\ServerQuery\Exception;
 use Adams\TeamSpeak3\Node;
-use Adams\TeamSpeak3\Node\Server;
 use Adams\TeamSpeak3\Helper\Signal;
 use Adams\TeamSpeak3\Helper\Str;
 use Adams\TeamSpeak3\Helper\Convert;
 use Adams\TeamSpeak3\Helper\Crypt;
+use ReflectionClass;
 
 /**
  * @class Host
@@ -970,7 +970,7 @@ class Host extends Node
   protected function fetchPermissionCats()
   {
     $permcats = array();
-    $reflects = new \ReflectionClass("TeamSpeak3");
+    $reflects = new ReflectionClass("TeamSpeak3");
 
     foreach($reflects->getConstants() as $key => $val)
     {

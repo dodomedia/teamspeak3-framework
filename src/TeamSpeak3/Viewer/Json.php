@@ -34,6 +34,7 @@ use Adams\TeamSpeak3\Node\Channel;
 use Adams\TeamSpeak3\Node\Client;
 use Adams\TeamSpeak3\Node\ServerGroup;
 use Adams\TeamSpeak3\Node\ChannelGroup;
+use stdClass;
 
 /**
  * @class Json
@@ -433,7 +434,7 @@ class Json implements ViewerInterface
 
       foreach($this->currObj->memberOf() as $num => $group)
       {
-        $props->memberof[$num] = new \stdClass();
+        $props->memberof[$num] = new stdClass();
 
         $props->memberof[$num]->name  = trim($group->name);
         $props->memberof[$num]->icon  = $group->iconid < 0 ? pow(2, 32)-($group->iconid*-1) : $group->iconid;

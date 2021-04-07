@@ -24,8 +24,6 @@
 
 namespace Adams\TeamSpeak3\Helper;
 
-use Adams\TeamSpeak3\Helper\Exception;
-
 /**
  * @todo: Replace this class with native encryption
  *

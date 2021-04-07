@@ -32,12 +32,16 @@ use Adams\TeamSpeak3\Helper\Convert;
 use Adams\TeamSpeak3\Adapter\ServerQuery;
 use Adams\TeamSpeak3\Adapter\ServerQuery\Reply;
 use Adams\TeamSpeak3\Interfaces\Viewer as ViewerInterface;
+use ArrayAccess;
+use Countable;
+use RecursiveIterator;
+use RecursiveIteratorIterator;
 
 /**
  * @class Node
  * @brief Abstract class describing a TeamSpeak 3 node and all it's parameters.
  */
-abstract class Node implements \RecursiveIterator, \ArrayAccess, \Countable
+abstract class Node implements RecursiveIterator, ArrayAccess, Countable
 {
   /**
    * @ignore
@@ -201,7 +205,7 @@ abstract class Node implements \RecursiveIterator, \ArrayAccess, \Countable
   {
     $html = $viewer->fetchObject($this);
 
-    $iterator = new \RecursiveIteratorIterator($this, \RecursiveIteratorIterator::SELF_FIRST);
+    $iterator = new RecursiveIteratorIterator($this, RecursiveIteratorIterator::SELF_FIRST);
 
     foreach($iterator as $node)
     {

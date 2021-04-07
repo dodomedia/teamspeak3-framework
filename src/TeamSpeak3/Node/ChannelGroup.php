@@ -27,7 +27,6 @@ namespace Adams\TeamSpeak3\Node;
 use Adams\TeamSpeak3;
 use Adams\TeamSpeak3\Adapter\ServerQuery\Exception;
 use Adams\TeamSpeak3\Node;
-use Adams\TeamSpeak3\Node\Server;
 use Adams\TeamSpeak3\Helper\Str;
 
 /**

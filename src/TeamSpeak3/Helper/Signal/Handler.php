@@ -24,8 +24,6 @@
 
 namespace Adams\TeamSpeak3\Helper\Signal;
 
-use Adams\TeamSpeak3\Signal\Exception;
-
 /**
  * @class Handler
  * @brief Helper class providing handler functions for signals.

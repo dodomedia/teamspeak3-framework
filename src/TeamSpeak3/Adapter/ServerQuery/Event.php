@@ -30,14 +30,14 @@ use Adams\TeamSpeak3\Helper\Signal;
 use Adams\TeamSpeak3\Node\Host;
 use Adams\TeamSpeak3\Node\Exception as NodeException;
 use Adams\TeamSpeak3\Adapter\Exception;
-use Adams\TeamSpeak3\Adapter\ServerQuery\Reply;
 use Adams\TeamSpeak3\Adapter\ServerQuery\Exception as ServerQueryException;
+use ArrayAccess;
 
 /**
  * @class Event
  * @brief Provides methods to analyze and format a ServerQuery event.
  */
-class Event implements \ArrayAccess
+class Event implements ArrayAccess
 {
   /**
    * Stores the event type.

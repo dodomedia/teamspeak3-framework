@@ -28,11 +28,6 @@ use Adams\TeamSpeak3;
 use Adams\TeamSpeak3\Adapter\ServerQuery\Exception;
 use Adams\TeamSpeak3\Adapter\ServerQuery\Reply;
 use Adams\TeamSpeak3\Node;
-use Adams\TeamSpeak3\Node\Host;
-use Adams\TeamSpeak3\Node\Channel;
-use Adams\TeamSpeak3\Node\Client;
-use Adams\TeamSpeak3\Node\ServerGroup;
-use Adams\TeamSpeak3\Node\ChannelGroup;
 use Adams\TeamSpeak3\Helper\Str;
 use Adams\TeamSpeak3\Helper\Signal;
 
@@ -1049,7 +1044,7 @@ class Server extends Node
   /**
    * Returns a list of server groups available.
    *
-   * @param  filter $filter
+   * @param $filter filter
    * @return array|Servergroup[]
    */
   public function serverGroupList(array $filter = array())

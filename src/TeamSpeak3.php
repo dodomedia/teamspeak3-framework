@@ -33,6 +33,7 @@ use Adams\TeamSpeak3\Node\Server;
 use Adams\TeamSpeak3\Helper\Uri;
 use Adams\TeamSpeak3\Helper\Str;
 use Adams\TeamSpeak3\Helper\Profiler;
+use LogicException;
 
 /**
  * @class TeamSpeak3
@@ -464,24 +465,24 @@ class TeamSpeak3
   /**
    * Checks for required PHP features, enables autoloading and starts a default profiler.
    *
-   * @throws \LogicException
+   * @throws LogicException
    * @return void
    */
   public static function init()
   {
     if(version_compare(phpversion(), "5.2.1") == -1)
     {
-      throw new \LogicException("this particular software cannot be used with the installed version of PHP");
+      throw new LogicException("this particular software cannot be used with the installed version of PHP");
     }
 
     if(!function_exists("stream_socket_client"))
     {
-      throw new \LogicException("network functions are not available in this PHP installation");
+      throw new LogicException("network functions are not available in this PHP installation");
     }
 
     if(!function_exists("spl_autoload_register"))
     {
-      throw new \LogicException("autoload functions are not available in this PHP installation");
+      throw new LogicException("autoload functions are not available in this PHP installation");
     }
 
     Profiler::start();

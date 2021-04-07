@@ -28,8 +28,6 @@ use Adams\TeamSpeak3;
 use Adams\TeamSpeak3\Helper\Str;
 use Adams\TeamSpeak3\Helper\Signal;
 use Adams\TeamSpeak3\Node\Host;
-use Adams\TeamSpeak3\Adapter\ServerQuery\Exception;
-use Adams\TeamSpeak3\Adapter\ServerQuery\Event;
 
 /**
  * @class TeamSpeak3_Adapter_ServerQuery_Reply
@@ -233,7 +231,7 @@ class Reply
   /**
    * Returns an array containing stdClass objects.
    *
-   * @return ArrayObject
+   * @return \ArrayObject
    */
   public function toObjectArray()
   {
