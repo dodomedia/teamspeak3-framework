@@ -464,7 +464,7 @@ class Str implements ArrayAccess, Iterator, Countable
     $pattern[] = "[\xF1-\xF3][\x80-\xBF]{3}";         // planes 4-15
     $pattern[] = "\xF4[\x80-\x8F][\x80-\xBF]{2}";     // plane 16
 
-    return boolval(preg_match("%(?:" . implode("|", $pattern) . ")+%xs", $this->string));
+    return (bool) preg_match("%(?:" . implode("|", $pattern) . ")+%xs", $this->string);
   }
 
   /**

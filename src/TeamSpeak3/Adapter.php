@@ -130,7 +130,7 @@ abstract class Adapter
    * @throws Exception
    * @return void
    */
-  protected function initTransport($options, $transport = TCP::class)
+  protected function initTransport($options, $transport = 'Adams\TeamSpeak3\Transport\TCP')
   {
     if(!is_array($options))
     {
